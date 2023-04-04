@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.selection.DisableSelection
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -101,7 +103,7 @@ fun ColumnScope.CustomItem1(weight: Float, color: Color = MaterialTheme.colors.p
             .weight(weight),
         color = color
     ) {
-        Greeting(name = "Buddha")
+        CustomText4()
     }
 }
 
@@ -159,6 +161,19 @@ fun CustomText2() {
 @Composable
 fun CustomText3() {
     Text(text = "Hello World!".repeat(20), maxLines = 2, overflow = TextOverflow.Ellipsis)
+}
+
+@Composable
+fun CustomText4() {
+    SelectionContainer {
+        Column {
+            Text(text = "Hello World!", color = Color.White)
+            DisableSelection {
+                Text(text = "Hello World! - Disabled selection", color = Color.White)
+            }
+            Text(text = "Hello World!", color = Color.White)
+        }
+    }
 }
 
 @Preview(showBackground = true)
