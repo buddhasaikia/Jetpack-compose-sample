@@ -12,6 +12,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -62,7 +71,15 @@ class MainActivity : ComponentActivity() {
                                 .background(Color.Green)
                         )
                         Text(
-                            text = "I love Android", fontSize = 40.sp
+                            modifier = Modifier
+                                .width(360.dp)
+                                .background(Color.Gray)
+                                .padding(16.dp),
+                            text = stringResource(id = R.string.app_name),
+                            fontStyle = FontStyle.Italic,
+                            fontSize = 20.sp,
+                            textAlign = TextAlign.End,
+                            color = Color.White
                         )
                     }
                 }
@@ -96,8 +113,52 @@ fun RowScope.CustomItem2(weight: Float, color: Color = MaterialTheme.colors.prim
             .weight(weight),
         color = color
     ) {
-        Greeting(name = "Saikia")
+        CustomText3()
     }
+}
+
+@Composable
+fun CustomText1() {
+    Text(
+        modifier = Modifier
+            .width(360.dp)
+            .background(Color.Gray)
+            .padding(16.dp),
+        text = stringResource(id = R.string.app_name),
+        fontStyle = FontStyle.Italic,
+        fontSize = 20.sp,
+        textAlign = TextAlign.End,
+        color = Color.White
+    )
+}
+
+@Composable
+fun CustomText2() {
+    Text(
+        text = buildAnnotatedString {
+            withStyle(style = ParagraphStyle(textAlign = TextAlign.Center)) {
+                withStyle(
+                    style = SpanStyle(
+                        color = Color.Magenta,
+                        fontSize = 40.sp,
+                        fontWeight = FontWeight.ExtraBold
+                    )
+                ) {
+                    append("A")
+                }
+                append("B")
+                append("C")
+                append("D")
+            }
+        }, color = Color.White, modifier = Modifier
+            .background(Color.LightGray)
+            .padding(8.dp)
+    )
+}
+
+@Composable
+fun CustomText3() {
+    Text(text = "Hello World!".repeat(20), maxLines = 2, overflow = TextOverflow.Ellipsis)
 }
 
 @Preview(showBackground = true)
@@ -117,6 +178,7 @@ fun DefaultPreview() {
             ) {
                 CustomItem1(weight = 1f, color = Color.Red)
                 CustomItem1(weight = 1f, color = MaterialTheme.colors.secondary)
+                CustomText2()
             }
 
             Row(
@@ -143,9 +205,7 @@ fun DefaultPreview() {
                         .height(100.dp)
                         .background(Color.Green)
                 )
-                Text(
-                    text = "I love Android", fontSize = 40.sp
-                )
+                CustomText1()
             }
         }
     }
