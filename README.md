@@ -7,5 +7,6 @@ Things covered-
 * Box
 * Text modification
 * Text selection
+* BaselineShift (Superscript/Subscript)
 
 <img src="screenshots/app.png" width="300">

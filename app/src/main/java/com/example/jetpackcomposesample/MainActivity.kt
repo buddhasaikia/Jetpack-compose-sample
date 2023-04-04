@@ -20,10 +20,12 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
@@ -46,6 +48,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         CustomItem1(weight = 1f, color = Color.Red)
                         CustomItem1(weight = 1f, color = MaterialTheme.colors.secondary)
+                        CustomText2()
                     }
 
                     Row(
@@ -57,6 +60,7 @@ class MainActivity : ComponentActivity() {
                     ) {
                         CustomItem2(weight = 1f)
                         CustomItem2(weight = 1f, color = Color.Magenta)
+                        CustomItem5(weight = 2f, color = Color.White)
                     }
 
                     Box(
@@ -72,27 +76,12 @@ class MainActivity : ComponentActivity() {
                                 .height(100.dp)
                                 .background(Color.Green)
                         )
-                        Text(
-                            modifier = Modifier
-                                .width(360.dp)
-                                .background(Color.Gray)
-                                .padding(16.dp),
-                            text = stringResource(id = R.string.app_name),
-                            fontStyle = FontStyle.Italic,
-                            fontSize = 20.sp,
-                            textAlign = TextAlign.End,
-                            color = Color.White
-                        )
+                        CustomText1()
                     }
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
 }
 
 @Composable
@@ -116,6 +105,34 @@ fun RowScope.CustomItem2(weight: Float, color: Color = MaterialTheme.colors.prim
         color = color
     ) {
         CustomText3()
+    }
+}
+
+@Composable
+fun RowScope.CustomItem5(weight: Float, color: Color) {
+    Surface(
+        modifier = Modifier
+            .fillMaxHeight()
+            .weight(weight),
+        color = color
+    ) {
+        Column(modifier = Modifier.padding(10.dp)) {
+            BaselineScriptText(
+                "Hello",
+                28.sp,
+                "World",
+                14.sp,
+                superFontWeight = FontWeight.ExtraLight,
+                baselineShift = BaselineShift.Subscript
+            )
+            BaselineScriptText(
+                normalText = "X",
+                30.sp,
+                superText = "2",
+                16.sp,
+                superFontWeight = FontWeight.Light
+            )
+        }
     }
 }
 
@@ -176,6 +193,31 @@ fun CustomText4() {
     }
 }
 
+@Composable
+fun BaselineScriptText(
+    normalText: String,
+    normalFontSize: TextUnit = MaterialTheme.typography.subtitle1.fontSize,
+    superText: String,
+    superFontSize: TextUnit = MaterialTheme.typography.overline.fontSize,
+    superFontWeight: FontWeight = FontWeight.Normal,
+    baselineShift: BaselineShift = BaselineShift.Superscript
+) {
+    Text(text = buildAnnotatedString {
+        withStyle(style = SpanStyle(fontSize = normalFontSize)) {
+            append(normalText)
+        }
+        withStyle(
+            style = SpanStyle(
+                fontSize = superFontSize,
+                fontWeight = superFontWeight,
+                baselineShift = baselineShift
+            )
+        ) {
+            append(superText)
+        }
+    })
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
@@ -205,6 +247,7 @@ fun DefaultPreview() {
             ) {
                 CustomItem2(weight = 1f)
                 CustomItem2(weight = 1f, color = Color.Magenta)
+                CustomItem5(weight = 2f, color = Color.White)
             }
 
             Box(
