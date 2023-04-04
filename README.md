@@ -4,4 +4,4 @@ Column
 Box
 Text modification
 
-![Screenshot](screenshots/app.png)
+![Screenshot](screenshots/app.png|width=300)
