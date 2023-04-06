@@ -4,10 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -20,10 +19,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
+import coil.transform.CircleCropTransformation
 
 class ExpandableCardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,6 +56,8 @@ class ExpandableCardActivity : ComponentActivity() {
                 OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Outlined.AccountBox)
                 DividerTransparent()
                 BasicTextFieldInput()
+                DividerTransparent()
+                CoilImageViewer()
             }
         }
     }
@@ -85,6 +92,36 @@ fun TextFieldInputWithLeadingIcon(leadingIcon: ImageVector) {
             }
         }
     )
+}
+
+@Composable
+fun CoilImageViewer() {
+    Box(
+        modifier = Modifier
+            .width(200.dp)
+            .height(200.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        val painter =
+            rememberAsyncImagePainter(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data("https://avatars.githubusercontent.com/u/13464551?v=4")
+                    .transformations(CircleCropTransformation())
+                    .crossfade(1000)
+                    .build(),
+                placeholder = painterResource(R.drawable.image_placeholder),
+                error = painterResource(R.drawable.person_falling_burst_solid)
+            )
+        val painterState = painter.state
+        Image(
+            painter = painter,
+            contentDescription = "Coil Image",
+            modifier = Modifier.padding(20.dp)
+        )
+        if (painterState is AsyncImagePainter.State.Loading) {
+            CircularProgressIndicator()
+        }
+    }
 }
 
 @Composable
@@ -139,5 +176,7 @@ fun DefaultPreviewExpandableCardActivity() {
         OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Outlined.AccountBox)
         DividerTransparent()
         BasicTextFieldInput()
+        DividerTransparent()
+        CoilImageViewer()
     }
 }
