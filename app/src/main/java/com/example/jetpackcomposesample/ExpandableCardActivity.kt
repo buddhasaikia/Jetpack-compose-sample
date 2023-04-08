@@ -12,9 +12,11 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.outlined.AccountBox
 import androidx.compose.material.icons.outlined.Email
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,6 +25,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImagePainter
@@ -51,9 +55,11 @@ class ExpandableCardActivity : ComponentActivity() {
                     description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                 )
                 DividerTransparent()
+                PasswordTextField()
+                DividerTransparent()
                 TextFieldInputWithLeadingIcon(leadingIcon = Icons.Outlined.Email)
                 DividerTransparent()
-                OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Outlined.AccountBox)
+                OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Filled.Close)
                 DividerTransparent()
                 BasicTextFieldInput()
                 DividerTransparent()
@@ -64,33 +70,31 @@ class ExpandableCardActivity : ComponentActivity() {
 }
 
 @Composable
-fun BasicTextFieldInput() {
-    var text by remember { mutableStateOf("Basic text field") }
-    BasicTextField(
-        value = text,
-        modifier = Modifier
-            .background(Color.Gray)
-            .padding(16.dp),
-        onValueChange = { text = it },
-        singleLine = true
-    )
-}
+fun PasswordTextField() {
+    var password by rememberSaveable { mutableStateOf("") }
+    var passwordVisibility by remember { mutableStateOf(false) }
+    val icon =
+        if (passwordVisibility) painterResource(R.drawable.eye_regular) else painterResource(R.drawable.eye_slash_regular)
 
-@Composable
-fun TextFieldInputWithLeadingIcon(leadingIcon: ImageVector) {
-    var text by remember { mutableStateOf("") }
-    TextField(
-        value = text,
-        onValueChange = { text = it },
-        enabled = true,
-        readOnly = false,
-        label = { Text(text = "TextField") }, //Similar to hint
-        singleLine = true,
-        leadingIcon = {
-            IconButton(onClick = {}) {
-                Icon(imageVector = leadingIcon, contentDescription = "")
+    OutlinedTextField(
+        value = password, onValueChange = { password = it },
+        //placeholder = { Text(text = "Password") },
+        label = { Text(text = "Password") },
+        trailingIcon = {
+            IconButton(modifier = Modifier.size(24.dp), onClick = {
+                passwordVisibility = !passwordVisibility
+            }) {
+                Icon(
+                    painter = icon,
+                    contentDescription = "Show password"
+                )
             }
-        }
+        },
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        visualTransformation = if (passwordVisibility)
+            VisualTransformation.None
+        else
+            PasswordVisualTransformation()
     )
 }
 
@@ -125,6 +129,19 @@ fun CoilImageViewer() {
 }
 
 @Composable
+fun BasicTextFieldInput() {
+    var text by remember { mutableStateOf("Basic text field") }
+    BasicTextField(
+        value = text,
+        modifier = Modifier
+            .background(Color.Gray)
+            .padding(16.dp),
+        onValueChange = { text = it },
+        singleLine = true
+    )
+}
+
+@Composable
 fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
     var text by remember { mutableStateOf("") }
     OutlinedTextField(
@@ -135,8 +152,10 @@ fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
         label = { Text(text = "OutlinedTextField") }, //Similar to hint
         singleLine = true,
         trailingIcon = {
-            IconButton(onClick = { Log.d("InputWithTrailingIcon", "trailingIcon clicked!") }) {
-                Icon(imageVector = trailingIcon, contentDescription = "")
+            if (text.isNotBlank()) {
+                IconButton(onClick = { text = "" }) {
+                    Icon(imageVector = trailingIcon, contentDescription = "")
+                }
             }
         },
         keyboardOptions = KeyboardOptions(
@@ -148,6 +167,24 @@ fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
                 Log.d("InputWithTrailingIcon", "Keyboard Search icon pressed!")
             }
         )
+    )
+}
+
+@Composable
+fun TextFieldInputWithLeadingIcon(leadingIcon: ImageVector) {
+    var text by rememberSaveable { mutableStateOf("") }
+    TextField(
+        value = text,
+        onValueChange = { text = it },
+        enabled = true,
+        readOnly = false,
+        label = { Text(text = "TextField") }, //Similar to hint
+        singleLine = true,
+        leadingIcon = {
+            IconButton(onClick = {}) {
+                Icon(imageVector = leadingIcon, contentDescription = "")
+            }
+        }
     )
 }
 
@@ -170,6 +207,8 @@ fun DefaultPreviewExpandableCardActivity() {
             title = "My Title 2",
             description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         )
+        DividerTransparent()
+        PasswordTextField()
         DividerTransparent()
         TextFieldInputWithLeadingIcon(leadingIcon = Icons.Outlined.Email)
         DividerTransparent()
