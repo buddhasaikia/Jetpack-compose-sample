@@ -12,5 +12,6 @@ Things covered-
 * TextFields (BasicTextField, TextField, OutlinedTextField)
 * Coil image loading library
 * Password TextField
+* Gradient Button (A custom button)
 
 <img src="screenshots/app.png" width="300"> <img src="screenshots/expandable_card_and_text_fields.png" width="300">

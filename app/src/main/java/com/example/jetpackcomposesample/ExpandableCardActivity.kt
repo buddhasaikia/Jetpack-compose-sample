@@ -19,6 +19,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
@@ -33,6 +34,8 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
+import com.example.jetpackcomposesample.ui.theme.SublimeLightEnd
+import com.example.jetpackcomposesample.ui.theme.SublimeLightStart
 
 class ExpandableCardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,8 +64,17 @@ class ExpandableCardActivity : ComponentActivity() {
                 DividerTransparent()
                 OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Filled.Close)
                 DividerTransparent()
-                BasicTextFieldInput()
-                DividerTransparent()
+                Row {
+                    BasicTextFieldInput()
+                    DividerVerticalTransparent()
+                    GradientButton(
+                        text = "GradientButton",
+                        textColor = Color.White,
+                        gradient = Brush.horizontalGradient(
+                            colors = listOf(SublimeLightStart, SublimeLightEnd)
+                        )
+                    )
+                }
                 CoilImageViewer()
             }
         }
@@ -188,6 +200,21 @@ fun TextFieldInputWithLeadingIcon(leadingIcon: ImageVector) {
     )
 }
 
+@Composable
+fun GradientButton(text: String, textColor: Color, gradient: Brush) {
+    Button(
+        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
+        contentPadding = PaddingValues(),
+        onClick = { /*TODO*/ }) {
+        Box(modifier = Modifier
+            .background(gradient)
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+        contentAlignment = Alignment.Center) {
+            Text(text = text, color = textColor)
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreviewExpandableCardActivity() {
@@ -214,7 +241,17 @@ fun DefaultPreviewExpandableCardActivity() {
         DividerTransparent()
         OutlinedTextFieldWithTrailingIcon(trailingIcon = Icons.Outlined.AccountBox)
         DividerTransparent()
-        BasicTextFieldInput()
+        Row {
+            BasicTextFieldInput()
+            DividerVerticalTransparent()
+            GradientButton(
+                text = "GradientButton",
+                textColor = Color.White,
+                gradient = Brush.horizontalGradient(
+                    colors = listOf(SublimeLightStart, SublimeLightEnd)
+                )
+            )
+        }
         DividerTransparent()
         CoilImageViewer()
     }
