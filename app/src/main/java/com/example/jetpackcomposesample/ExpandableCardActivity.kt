@@ -156,12 +156,17 @@ fun BasicTextFieldInput() {
 @Composable
 fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
     var text by remember { mutableStateOf("") }
+    val maxChar = 10
     OutlinedTextField(
         value = text,
-        onValueChange = { text = it },
+        onValueChange = {
+            if (it.length <= maxChar) {
+                text = it
+            }
+        },
         enabled = true,
         readOnly = false,
-        label = { Text(text = "OutlinedTextField") }, //Similar to hint
+        label = { Text(text = "OutlinedTextField with character limit") }, //Similar to hint
         singleLine = true,
         trailingIcon = {
             if (text.isNotBlank()) {
@@ -206,10 +211,12 @@ fun GradientButton(text: String, textColor: Color, gradient: Brush) {
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
         contentPadding = PaddingValues(),
         onClick = { /*TODO*/ }) {
-        Box(modifier = Modifier
-            .background(gradient)
-            .padding(horizontal = 16.dp, vertical = 8.dp),
-        contentAlignment = Alignment.Center) {
+        Box(
+            modifier = Modifier
+                .background(gradient)
+                .padding(horizontal = 16.dp, vertical = 8.dp),
+            contentAlignment = Alignment.Center
+        ) {
             Text(text = text, color = textColor)
         }
     }

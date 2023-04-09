@@ -9,7 +9,7 @@ Things covered-
 * Text selection
 * BaselineShift (Superscript/Subscript)
 * Custom View (Expandable card)
-* TextFields (BasicTextField, TextField, OutlinedTextField)
+* TextFields (BasicTextField, TextField, OutlinedTextField with character limit)
 * Coil image loading library
 * Password TextField
 * Gradient Button (A custom button)

@@ -19,11 +19,7 @@
             android:exported="true"
             android:label="@string/title_activity_lazy_list_with_sticky_header"
             android:theme="@style/Theme.JetpackComposeSample">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LazyListActivity"
@@ -32,7 +28,14 @@
         <activity
             android:name=".ExpandableCardActivity"
             android:label="@string/title_activity_expandable_card"
-            android:theme="@style/Theme.JetpackComposeSample" />
+            android:theme="@style/Theme.JetpackComposeSample"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.JetpackComposeSample" />
