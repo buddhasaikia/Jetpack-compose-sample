@@ -2,4 +2,6 @@
     <string name="app_name">Jetpack Compose Sample</string>
     <string name="title_activity_expandable_card">ExpandableCardActivity</string>
     <string name="title_activity_lazy_list">LazyListActivity</string>
+    <string name="title_activity_lazy_list_with_sticky_header">LazyListWithStickyHeaderActivity
+    </string>
 </resources>

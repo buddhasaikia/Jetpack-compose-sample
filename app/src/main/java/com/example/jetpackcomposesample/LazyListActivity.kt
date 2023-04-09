@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.lazylist
+package com.example.jetpackcomposesample
 
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposesample.data.Repository
+import com.example.jetpackcomposesample.lazylist.EmployeeItem
 import com.example.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
 class LazyListActivity : ComponentActivity() {
@@ -47,7 +48,7 @@ class LazyListActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
+fun DefaultPreviewLazyColumn() {
     JetpackComposeSampleTheme {
         val repository = Repository()
         val employees = repository.getEmployees()
