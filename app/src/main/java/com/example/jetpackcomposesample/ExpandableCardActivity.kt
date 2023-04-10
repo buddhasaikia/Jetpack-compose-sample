@@ -154,7 +154,10 @@ fun BasicTextFieldInput() {
 }
 
 @Composable
-fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
+fun OutlinedTextFieldWithTrailingIcon(
+    trailingIcon: ImageVector = Icons.Filled.Close,
+    label: String = "OutlinedTextField with character limit"
+) {
     var text by remember { mutableStateOf("") }
     val maxChar = 10
     OutlinedTextField(
@@ -166,7 +169,7 @@ fun OutlinedTextFieldWithTrailingIcon(trailingIcon: ImageVector) {
         },
         enabled = true,
         readOnly = false,
-        label = { Text(text = "OutlinedTextField with character limit") }, //Similar to hint
+        label = { Text(text = label) }, //Similar to hint
         singleLine = true,
         trailingIcon = {
             if (text.isNotBlank()) {

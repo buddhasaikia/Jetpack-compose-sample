@@ -15,21 +15,30 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CircularProgressActivity"
+            android:exported="true"
+            android:label="@string/title_activity_curcular_progress"
+            android:theme="@style/Theme.JetpackComposeSample">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".LazyListWithStickyHeaderActivity"
             android:exported="true"
             android:label="@string/title_activity_lazy_list_with_sticky_header"
-            android:theme="@style/Theme.JetpackComposeSample">
-
-        </activity>
+            android:theme="@style/Theme.JetpackComposeSample"></activity>
         <activity
             android:name=".LazyListActivity"
             android:label="@string/title_activity_lazy_list"
-            android:theme="@style/Theme.JetpackComposeSample"/>
+            android:theme="@style/Theme.JetpackComposeSample" />
         <activity
             android:name=".ExpandableCardActivity"
+            android:exported="true"
             android:label="@string/title_activity_expandable_card"
-            android:theme="@style/Theme.JetpackComposeSample"
-            android:exported="true">
+            android:theme="@style/Theme.JetpackComposeSample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
