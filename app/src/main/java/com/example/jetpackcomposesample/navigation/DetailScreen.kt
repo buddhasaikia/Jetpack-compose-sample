@@ -34,7 +34,7 @@ fun DetailScreen(navController: NavController) {
                 //navController.popBackStack()
 
                 //Navigate to home screen (you can pass argument to home from detail screen, also remove detail screen from backstack
-                navController.navigate(Screen.Home.route) {
+                navController.navigate(Screen.Home.passIdAndData(1, "dummy data")) {
                     popUpTo(Screen.Home.route) {
                         inclusive = true
                     }

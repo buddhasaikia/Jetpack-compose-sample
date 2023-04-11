@@ -27,7 +27,7 @@ fun HomeScreen(navController: NavController) {
             fontSize = 30.sp,
             color = Color.Red,
             modifier = Modifier.clickable {
-               navController.navigate(Screen.Detail.route)
+                navController.navigate(route = Screen.Detail.passNameAndId(10, "buddha"))
             }
         )
     }
