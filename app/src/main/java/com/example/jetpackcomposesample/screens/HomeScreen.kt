@@ -2,7 +2,8 @@ package com.example.jetpackcomposesample.navigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,11 +17,12 @@ import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White),
-        contentAlignment = Alignment.Center
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceEvenly
     ) {
         Text(
             text = "Home Screen",
@@ -30,6 +32,10 @@ fun HomeScreen(navController: NavController) {
                 navController.navigate(route = Screen.Detail.passNameAndId(10, "buddha"))
             }
         )
+        Text(text = "Signup/Login",
+            modifier = Modifier.clickable {
+                navController.navigate(route = AUTH_GRAPH_ROUTE)
+            })
     }
 }
 

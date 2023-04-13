@@ -5,6 +5,10 @@ const val DETAIL_ARGUMENT_KEY2 = "name"
 const val HOME_ARGUMENT_KEY1 = "id"
 const val HOME_ARGUMENT_KEY2 = "data"
 
+const val ROOT_GRAPH_ROUTE = "root"
+const val HOME_GRAPH_ROUTE = "home"
+const val AUTH_GRAPH_ROUTE = "auth"
+
 sealed class Screen(val route: String) {
     object Home : Screen("home_screen?id={$HOME_ARGUMENT_KEY1}&data={$HOME_ARGUMENT_KEY2}") {
         fun passIdAndData(id: Int, data: String): String {
@@ -25,4 +29,7 @@ sealed class Screen(val route: String) {
             return "detail_screen/$id/$name"
         }
     }
+
+    object Login : Screen("login_screen")
+    object Signup : Screen("signup_screen")
 }
