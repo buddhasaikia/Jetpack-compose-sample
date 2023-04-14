@@ -6,4 +6,5 @@
     </string>
     <string name="title_activity_curcular_progress">CurcularProgressActivity</string>
     <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
 </resources>

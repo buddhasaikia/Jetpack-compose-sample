@@ -18,6 +18,7 @@ Things covered-
 * Curcular progress UI (Custom composable)
 * Navigation using jetpack compose (with mandatory and optional arguments)
 * Nested Navigation
+* Bottom navigation
 
 Live template shortcuts-
 * comp - create a composable function
