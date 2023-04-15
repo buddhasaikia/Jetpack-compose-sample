@@ -1,8 +1,10 @@
-package com.example.jetpackcomposesample.navigation
+package com.example.jetpackcomposesample.nestednavigation
 
 import android.util.Log
 import androidx.navigation.*
 import androidx.navigation.compose.composable
+import com.example.jetpackcomposesample.screens.DetailScreen
+import com.example.jetpackcomposesample.screens.HomeScreen
 
 fun NavGraphBuilder.homeNavGraph(navController: NavController) {
     navigation(

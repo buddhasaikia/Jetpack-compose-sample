@@ -7,10 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.navigation.SetupNavGraph
+import com.example.jetpackcomposesample.nestednavigation.SetupNavGraph
 import com.example.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
-class HomeActivity : ComponentActivity() {
+class NestedNavigationActivity : ComponentActivity() {
 
     lateinit var navController: NavHostController
 
@@ -29,6 +29,6 @@ class HomeActivity : ComponentActivity() {
 @Composable
 fun DefaultPreview2() {
     JetpackComposeSampleTheme {
-
+        SetupNavGraph(rememberNavController())
     }
 }

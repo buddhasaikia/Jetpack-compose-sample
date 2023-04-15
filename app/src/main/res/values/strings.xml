@@ -1,10 +1,4 @@
 <resources>
     <string name="app_name">Jetpack Compose Sample</string>
-    <string name="title_activity_expandable_card">ExpandableCardActivity</string>
-    <string name="title_activity_lazy_list">LazyListActivity</string>
-    <string name="title_activity_lazy_list_with_sticky_header">LazyListWithStickyHeaderActivity
-    </string>
-    <string name="title_activity_curcular_progress">CurcularProgressActivity</string>
     <string name="title_activity_home">HomeActivity</string>
-    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
 </resources>

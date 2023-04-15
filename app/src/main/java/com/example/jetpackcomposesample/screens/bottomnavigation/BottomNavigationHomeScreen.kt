@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.navigation
+package com.example.jetpackcomposesample.screens.bottomnavigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,18 +14,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcomposesample.nestednavigation.Screen
 
 @Composable
-fun ProfileScreen(navController: NavController) {
+fun BottomNavigationHomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Green),
+            .background(Color.Cyan),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
         Text(
-            text = "Profile",
+            text = "Home",
             fontSize = MaterialTheme.typography.h3.fontSize,
             color = Color.White,
             modifier = Modifier.clickable {
@@ -37,6 +38,6 @@ fun ProfileScreen(navController: NavController) {
 
 @Preview
 @Composable
-fun ProfileScreenPreview() {
-    ProfileScreen(navController = rememberNavController())
+fun BottomNavigationHomeScreenPreview() {
+    BottomNavigationHomeScreen(navController = rememberNavController())
 }

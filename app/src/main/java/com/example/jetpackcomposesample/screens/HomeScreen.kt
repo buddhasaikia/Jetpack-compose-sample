@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.navigation
+package com.example.jetpackcomposesample.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,6 +14,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcomposesample.nestednavigation.AUTH_GRAPH_ROUTE
+import com.example.jetpackcomposesample.nestednavigation.Screen
 
 @Composable
 fun HomeScreen(navController: NavController) {

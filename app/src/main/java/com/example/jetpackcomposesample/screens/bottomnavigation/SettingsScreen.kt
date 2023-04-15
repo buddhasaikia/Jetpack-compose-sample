@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.bottomnavigation
+package com.example.jetpackcomposesample.screens.bottomnavigation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.navigation.Screen
+import com.example.jetpackcomposesample.nestednavigation.Screen
 
 @Composable
 fun SettingsScreen(navController: NavController) {

@@ -1,10 +1,10 @@
-package com.example.jetpackcomposesample.bottomnavigation
+package com.example.jetpackcomposesample.screens.bottomnavigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.jetpackcomposesample.navigation.ProfileScreen
+import com.example.jetpackcomposesample.nestednavigation.ProfileScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {

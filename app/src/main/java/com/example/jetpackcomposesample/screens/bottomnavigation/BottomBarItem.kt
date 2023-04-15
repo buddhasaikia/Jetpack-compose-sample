@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.bottomnavigation
+package com.example.jetpackcomposesample.screens.bottomnavigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home

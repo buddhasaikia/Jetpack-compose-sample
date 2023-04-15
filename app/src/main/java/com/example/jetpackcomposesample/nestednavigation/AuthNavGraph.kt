@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.navigation
+package com.example.jetpackcomposesample.nestednavigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

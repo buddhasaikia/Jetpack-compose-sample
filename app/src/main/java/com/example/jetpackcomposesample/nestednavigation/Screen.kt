@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.navigation
+package com.example.jetpackcomposesample.nestednavigation
 
 const val DETAIL_ARGUMENT_KEY = "id"
 const val DETAIL_ARGUMENT_KEY2 = "name"

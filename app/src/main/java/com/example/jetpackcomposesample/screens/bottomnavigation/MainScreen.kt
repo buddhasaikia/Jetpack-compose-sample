@@ -1,23 +1,32 @@
-package com.example.jetpackcomposesample.bottomnavigation
+package com.example.jetpackcomposesample.screens.bottomnavigation
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcomposesample.screens.MyAppBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainScreen() {
+fun MainScreen(navHostController: NavHostController) {
     val mainController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomBar(navController = mainController)}
+        topBar = {
+            MyAppBar(
+                navHostController = navHostController,
+                title = "Bottom Navigation Screen"
+            )
+        },
+        bottomBar = { BottomBar(navController = mainController) }
     ) {
         BottomNavGraph(navController = mainController)
     }
@@ -67,4 +76,10 @@ fun RowScope.AddItem(
             }
         }
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun MainScreenPreview() {
+    MainScreen(rememberNavController())
 }
