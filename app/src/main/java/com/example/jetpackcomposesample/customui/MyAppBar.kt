@@ -8,7 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
-import com.example.jetpackcomposesample.landing.Screen
+import com.example.jetpackcomposesample.home.Screen
 
 @Composable
 fun MyAppBar(navHostController: NavHostController, title: String) {

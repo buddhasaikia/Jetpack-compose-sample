@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.landing
+package com.example.jetpackcomposesample.home
 
 sealed class Screen(val route: String) {
     object LandingScreen : Screen("landing_screen")

@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.landing.LandingNavGraph
-import com.example.jetpackcomposesample.landing.LandingScreen
+import com.example.jetpackcomposesample.home.HomeNavGraph
+import com.example.jetpackcomposesample.home.HomeScreen
 import com.example.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
 
 class HomeActivity : ComponentActivity() {
@@ -16,7 +16,7 @@ class HomeActivity : ComponentActivity() {
         setContent {
             JetpackComposeSampleTheme {
                 val navHostController = rememberNavController()
-                LandingNavGraph(navHostController = navHostController)
+                HomeNavGraph(navHostController = navHostController)
             }
         }
     }
@@ -27,6 +27,6 @@ class HomeActivity : ComponentActivity() {
 fun LandingActivityPreview() {
     JetpackComposeSampleTheme {
         val navController = rememberNavController()
-        LandingScreen(navController)
+        HomeScreen(navController)
     }
 }

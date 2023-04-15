@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.landing
+package com.example.jetpackcomposesample.home
 
 import android.app.Activity
 import androidx.compose.foundation.background
@@ -22,7 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcomposesample.ui.theme.Purple200
 
 @Composable
-fun LandingScreen(navHostController: NavHostController) {
+fun HomeScreen(navHostController: NavHostController) {
     val demoList = listOf(
         DemoItem(screen = Screen.RowDemoScreen, title = "Row Demo"),
         DemoItem(screen = Screen.ColumnDemoScreen, title = "Column Demo"),
@@ -92,5 +92,5 @@ fun DemoItemUI(screen: Screen?, title: String, navHostController: NavHostControl
 @Preview(showBackground = true)
 @Composable
 fun LandingScreenPreview() {
-    LandingScreen(rememberNavController())
+    HomeScreen(rememberNavController())
 }

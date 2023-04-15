@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.landing
+package com.example.jetpackcomposesample.home
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -8,12 +8,12 @@ import com.example.jetpackcomposesample.screens.bottomnavigation.MainScreen
 import com.example.jetpackcomposesample.screens.*
 
 @Composable
-fun LandingNavGraph(
+fun HomeNavGraph(
     navHostController: NavHostController
 ) {
     NavHost(navController = navHostController, startDestination = Screen.LandingScreen.route) {
         composable(route = Screen.LandingScreen.route) {
-            LandingScreen(navHostController)
+            HomeScreen(navHostController)
         }
         composable(route = Screen.RowDemoScreen.route) {
             RowDemoScreen(navHostController)
