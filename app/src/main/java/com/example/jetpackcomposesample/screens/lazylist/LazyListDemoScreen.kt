@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.screens
+package com.example.jetpackcomposesample.screens.lazylist
 
 import android.annotation.SuppressLint
 import android.util.Log
@@ -14,6 +14,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -21,6 +22,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcomposesample.data.Repository
@@ -29,23 +31,77 @@ import com.example.jetpackcomposesample.lazylist.EmployeeItem
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun LazyListDemoScreen(navHostController: NavHostController) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        DefaultAppBar(
-            navHostController = navHostController,
-            title = "Lazy List Demo",
-            onSearchClicked = {}
-        )
-        val repository = Repository()
-        val employees = repository.getEmployees()
-        LazyColumn(
-            modifier = Modifier.padding(8.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            itemsIndexed(items = employees) { index, employee ->
-                Log.d("index", "$index")
-                EmployeeItem(employee = employee)
+fun LazyListDemoScreen(navHostController: NavHostController, viewModel: ViewModel) {
+    val lazyListViewModel = viewModel as LazyListViewModel
+    val searchWidgetState by lazyListViewModel.searchWidgetState
+    val searchTextState by lazyListViewModel.searchTextState
+
+    Scaffold(
+        topBar = {
+            MainAppBar(
+                title = "Lazy List Demo",
+                navHostController = navHostController,
+                searchWidgetState = searchWidgetState,
+                searchTextState = searchTextState,
+                onTextChange = {
+                    lazyListViewModel.updateSearchTextState(newValue = it)
+                },
+                onCloseClicked = {
+                    lazyListViewModel.updateSearchWidgetState(newValue = SearchWidgetState.CLOSED)
+                },
+                onSearchClicked = {
+                    Log.d("Searched Text", it)
+                },
+                onSearchTriggered = {
+                    lazyListViewModel.updateSearchWidgetState(newValue = SearchWidgetState.OPENED)
+                }
+            )
+        }
+    ) {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(it)) {
+            val repository = Repository()
+            val employees = repository.getEmployees()
+            LazyColumn(
+                modifier = Modifier.padding(8.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                itemsIndexed(items = employees) { index, employee ->
+                    Log.d("index", "$index")
+                    EmployeeItem(employee = employee)
+                }
             }
+        }
+    }
+}
+
+@Composable
+fun MainAppBar(
+    title: String,
+    navHostController: NavHostController,
+    searchWidgetState: SearchWidgetState,
+    searchTextState: String,
+    onTextChange: (String) -> Unit,
+    onCloseClicked: () -> Unit,
+    onSearchClicked: (String) -> Unit,
+    onSearchTriggered: () -> Unit
+) {
+    when (searchWidgetState) {
+        SearchWidgetState.CLOSED -> {
+            DefaultAppBar(
+                onSearchClicked = onSearchTriggered,
+                navHostController = navHostController,
+                title = title
+            )
+        }
+        SearchWidgetState.OPENED -> {
+            SearchAppBar(
+                text = searchTextState,
+                onTextChange = onTextChange,
+                onCloseClicked = onCloseClicked,
+                onSearchClicked = onSearchClicked
+            )
         }
     }
 }
@@ -155,5 +211,8 @@ fun SearchAppBar(
 @Preview
 @Composable
 fun LazyListDemoScreenPreview() {
-    LazyListDemoScreen(navHostController = rememberNavController())
+    LazyListDemoScreen(
+        navHostController = rememberNavController(),
+        viewModel = LazyListViewModel()
+    )
 }

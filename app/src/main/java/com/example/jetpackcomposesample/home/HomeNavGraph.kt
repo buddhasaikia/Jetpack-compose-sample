@@ -1,15 +1,18 @@
 package com.example.jetpackcomposesample.home
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.jetpackcomposesample.screens.bottomnavigation.MainScreen
 import com.example.jetpackcomposesample.screens.*
+import com.example.jetpackcomposesample.screens.lazylist.LazyListDemoScreen
 
 @Composable
 fun HomeNavGraph(
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    viewModel: ViewModel
 ) {
     NavHost(navController = navHostController, startDestination = Screen.HomeScreen.route) {
         composable(route = Screen.HomeScreen.route) {
@@ -40,7 +43,7 @@ fun HomeNavGraph(
             CoilImageDemoScreen(navHostController = navHostController)
         }
         composable(route = Screen.LazyListDemoScreen.route){
-            LazyListDemoScreen(navHostController = navHostController)
+            LazyListDemoScreen(navHostController = navHostController, viewModel = viewModel)
         }
         composable(route = Screen.LazyListWithStickyHeaderDemoScreen.route){
             LazyListWithStickyHeaderDemoScreen(navHostController = navHostController)
