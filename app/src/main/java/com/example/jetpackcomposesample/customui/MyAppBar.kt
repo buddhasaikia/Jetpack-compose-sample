@@ -16,7 +16,7 @@ fun MyAppBar(navHostController: NavHostController, title: String) {
         title = { Text(text = title) },
         navigationIcon = {
             IconButton(onClick = {
-                navHostController.navigate(Screen.LandingScreen.route) {
+                navHostController.navigate(Screen.HomeScreen.route) {
                     navHostController.popBackStack()
                 }
             }) {

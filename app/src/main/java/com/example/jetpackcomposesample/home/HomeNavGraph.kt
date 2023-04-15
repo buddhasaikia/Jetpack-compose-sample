@@ -11,8 +11,8 @@ import com.example.jetpackcomposesample.screens.*
 fun HomeNavGraph(
     navHostController: NavHostController
 ) {
-    NavHost(navController = navHostController, startDestination = Screen.LandingScreen.route) {
-        composable(route = Screen.LandingScreen.route) {
+    NavHost(navController = navHostController, startDestination = Screen.HomeScreen.route) {
+        composable(route = Screen.HomeScreen.route) {
             HomeScreen(navHostController)
         }
         composable(route = Screen.RowDemoScreen.route) {

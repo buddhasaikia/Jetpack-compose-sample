@@ -1,7 +1,7 @@
 package com.example.jetpackcomposesample.home
 
 sealed class Screen(val route: String) {
-    object LandingScreen : Screen("landing_screen")
+    object HomeScreen : Screen("home_screen")
     object RowDemoScreen : Screen("row_demo_screen")
     object ColumnDemoScreen : Screen("column_demo_screen")
     object BoxDemoScreen : Screen("box_demo_screen")
