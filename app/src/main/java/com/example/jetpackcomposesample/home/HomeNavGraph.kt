@@ -43,7 +43,7 @@ fun HomeNavGraph(
             CoilImageDemoScreen(navHostController = navHostController)
         }
         composable(route = Screen.LazyListDemoScreen.route){
-            LazyListDemoScreen(navHostController = navHostController, viewModel = viewModel)
+            LazyListDemoScreen(navHostController = navHostController)
         }
         composable(route = Screen.LazyListWithStickyHeaderDemoScreen.route){
             LazyListWithStickyHeaderDemoScreen(navHostController = navHostController)
@@ -53,6 +53,9 @@ fun HomeNavGraph(
         }
         composable(route = Screen.BottomNavigationDemoScreen.route){
             MainScreen(navHostController = navHostController)
+        }
+        composable(route = Screen.SearchBarDemoScreen.route){
+            SearchBarDemoScreen(navHostController = navHostController, viewModel = viewModel)
         }
     }
 }

@@ -28,14 +28,15 @@ fun HomeScreen(navHostController: NavHostController) {
         DemoItem(screen = Screen.ColumnDemoScreen, title = "Column Demo"),
         DemoItem(screen = Screen.BoxDemoScreen, title = "Box Demo"),
         DemoItem(screen = Screen.TextModificationDemoScreen, title = "Text Modification Demo"),
-        DemoItem(screen = Screen.ExpandableCardDemoScreen, title = "Expandable Card - A Custom UI"),
         DemoItem(screen = Screen.TextFieldDemoScreen, title = "TextField Demo"),
         DemoItem(screen = Screen.ButtonDemoScreen, title = "Button Demo"),
+        DemoItem(screen = Screen.ExpandableCardDemoScreen, title = "Expandable Card - A Custom UI"),
         DemoItem(screen = Screen.CoilImageDemoScreen, title = "Coil Image Demo"),
         DemoItem(screen = Screen.LazyListDemoScreen, title = "Lazy List Demo"),
         DemoItem(screen = Screen.LazyListWithStickyHeaderDemoScreen, title = "Sticky Header Lazy List Demo"),
         DemoItem(screen = Screen.CircularProgressIndicatorDemoScreen, title = "Circular Progress Indicator Demo"),
         DemoItem(screen = Screen.BottomNavigationDemoScreen, title = "Bottom Navigation Demo"),
+        DemoItem(screen = Screen.SearchBarDemoScreen, title = "Search Bar Demo"),
         DemoItem(screen = null, title = "Exit")
     )
     Column(

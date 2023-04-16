@@ -14,4 +14,5 @@ sealed class Screen(val route: String) {
     object LazyListWithStickyHeaderDemoScreen : Screen("lazy_list_with_sticky_header_demo_screen")
     object CircularProgressIndicatorDemoScreen : Screen("circular_progress_indicator_demo_screen")
     object BottomNavigationDemoScreen : Screen("bottom_navigation_demo_screen")
+    object SearchBarDemoScreen : Screen("search_bar_demo_screen")
 }
