@@ -37,6 +37,7 @@ fun HomeScreen(navHostController: NavHostController) {
         DemoItem(screen = Screen.CircularProgressIndicatorDemoScreen, title = "Circular Progress Indicator Demo"),
         DemoItem(screen = Screen.BottomNavigationDemoScreen, title = "Bottom Navigation Demo"),
         DemoItem(screen = Screen.SearchBarDemoScreen, title = "Search Bar Demo"),
+        DemoItem(screen = Screen.ShimmerLoadingDemoScreen, title = "Shimmer Loading Demo"),
         DemoItem(screen = null, title = "Exit")
     )
     Column(

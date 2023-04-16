@@ -33,29 +33,32 @@ fun HomeNavGraph(
         composable(route = Screen.ExpandableCardDemoScreen.route) {
             ExpandableCardScreen(navHostController = navHostController)
         }
-        composable(route = Screen.TextFieldDemoScreen.route){
+        composable(route = Screen.TextFieldDemoScreen.route) {
             TextFieldsScreen(navHostController = navHostController)
         }
-        composable(route = Screen.ButtonDemoScreen.route){
+        composable(route = Screen.ButtonDemoScreen.route) {
             ButtonDemoScreen(navHostController = navHostController)
         }
-        composable(route = Screen.CoilImageDemoScreen.route){
+        composable(route = Screen.CoilImageDemoScreen.route) {
             CoilImageDemoScreen(navHostController = navHostController)
         }
-        composable(route = Screen.LazyListDemoScreen.route){
+        composable(route = Screen.LazyListDemoScreen.route) {
             LazyListDemoScreen(navHostController = navHostController)
         }
-        composable(route = Screen.LazyListWithStickyHeaderDemoScreen.route){
+        composable(route = Screen.LazyListWithStickyHeaderDemoScreen.route) {
             LazyListWithStickyHeaderDemoScreen(navHostController = navHostController)
         }
-        composable(route = Screen.CircularProgressIndicatorDemoScreen.route){
+        composable(route = Screen.CircularProgressIndicatorDemoScreen.route) {
             CircularProgressIndicatorScreen(navHostController = navHostController)
         }
-        composable(route = Screen.BottomNavigationDemoScreen.route){
+        composable(route = Screen.BottomNavigationDemoScreen.route) {
             MainScreen(navHostController = navHostController)
         }
-        composable(route = Screen.SearchBarDemoScreen.route){
+        composable(route = Screen.SearchBarDemoScreen.route) {
             SearchBarDemoScreen(navHostController = navHostController, viewModel = viewModel)
+        }
+        composable(route = Screen.ShimmerLoadingDemoScreen.route) {
+            ShimmerLoadingScreen(navHostController = navHostController)
         }
     }
 }
