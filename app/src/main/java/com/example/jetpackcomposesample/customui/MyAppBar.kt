@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.screens
+package com.example.jetpackcomposesample.customui
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton

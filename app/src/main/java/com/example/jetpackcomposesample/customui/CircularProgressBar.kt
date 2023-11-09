@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample
+package com.example.jetpackcomposesample.customui
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
@@ -55,12 +55,12 @@ fun CircularProgressBar(
     val percentage = (animatedProgressValue / maxProgressValue) * 100
     val sweepAngle by animateFloatAsState(
         targetValue = (2.4 * percentage).toFloat(),
-        animationSpec = tween(1000)
+        animationSpec = tween(1000), label = ""
     )
 
     val animatedPrimaryText by animateIntAsState(
         targetValue = allowedProgressValue,
-        animationSpec = tween(1000)
+        animationSpec = tween(1000), label = ""
     )
 
     val animatedPrimaryTextColor by animateColorAsState(
@@ -75,7 +75,7 @@ fun CircularProgressBar(
                 primaryTextColor
             }
         },
-        animationSpec = tween(1000)
+        animationSpec = tween(1000), label = ""
     )
 
     Column(

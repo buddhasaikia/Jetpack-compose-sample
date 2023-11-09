@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample.home
+package com.example.jetpackcomposesample.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.screens.MyAppBar
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun ColumnDemoScreen(navHostController: NavHostController) {

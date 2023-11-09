@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample
+package com.example.jetpackcomposesample.customui
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width

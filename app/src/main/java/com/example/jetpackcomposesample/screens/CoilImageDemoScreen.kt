@@ -19,6 +19,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.example.jetpackcomposesample.R
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun CoilImageDemoScreen(navHostController: NavHostController) {

@@ -7,8 +7,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.DividerTransparent
-import com.example.jetpackcomposesample.ExpandableCard
+import com.example.jetpackcomposesample.customui.DividerTransparent
+import com.example.jetpackcomposesample.customui.ExpandableCard
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun ExpandableCardScreen(navHostController: NavHostController) {

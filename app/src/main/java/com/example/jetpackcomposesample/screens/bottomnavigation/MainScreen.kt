@@ -13,7 +13,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.screens.MyAppBar
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

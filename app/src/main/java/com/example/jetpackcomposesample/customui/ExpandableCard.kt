@@ -1,4 +1,4 @@
-package com.example.jetpackcomposesample
+package com.example.jetpackcomposesample.customui
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ExpandableCard(title: String, description: String) {
     var expandedState by remember { mutableStateOf(false) }
-    val rotationState by animateFloatAsState(targetValue = if (expandedState) 180f else 0f)
+    val rotationState by animateFloatAsState(targetValue = if (expandedState) 180f else 0f, label = "")
 
     Card(
         modifier = Modifier

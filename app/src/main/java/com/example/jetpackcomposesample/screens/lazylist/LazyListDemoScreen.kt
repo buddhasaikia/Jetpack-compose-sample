@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcomposesample.data.Repository
-import com.example.jetpackcomposesample.lazylist.EmployeeItem
-import com.example.jetpackcomposesample.screens.MyAppBar
+import com.example.jetpackcomposesample.customui.EmployeeItem
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun LazyListDemoScreen(navHostController: NavHostController) {

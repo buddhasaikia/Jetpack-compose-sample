@@ -29,8 +29,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.*
 import com.example.jetpackcomposesample.R
+import com.example.jetpackcomposesample.customui.DividerTransparent
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun TextFieldsScreen(navHostController: NavHostController) {

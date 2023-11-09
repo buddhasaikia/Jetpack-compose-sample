@@ -20,7 +20,7 @@ fun ShimmerLoadingProgressbar() {
         Color.LightGray.copy(alpha = .6f),
         Color.LightGray.copy(alpha = .4f)
     )
-    val transition = rememberInfiniteTransition()
+    val transition = rememberInfiniteTransition(label = "")
 
     val translateAnimation = transition.animateFloat(
         initialValue = 0f,
@@ -31,7 +31,7 @@ fun ShimmerLoadingProgressbar() {
                 easing = FastOutSlowInEasing
             ),
             repeatMode = RepeatMode.Reverse
-        )
+        ), label = ""
     )
 
     val brush = Brush.linearGradient(

@@ -15,8 +15,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.jetpackcomposesample.CircularProgressBar
-import com.example.jetpackcomposesample.ui.theme.JetpackComposeSampleTheme
+import com.example.jetpackcomposesample.customui.CircularProgressBar
+import com.example.jetpackcomposesample.customui.MyAppBar
 
 @Composable
 fun CircularProgressIndicatorScreen(navHostController: NavHostController) {
