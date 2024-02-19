@@ -26,7 +26,7 @@ fun CircularProgressIndicatorScreen(navHostController: NavHostController) {
         horizontalAlignment = Alignment . CenterHorizontally
     ) {
         MyAppBar(navHostController = navHostController, title = "Circular Progress Indicator Demo")
-        var value by remember { mutableStateOf(0) }
+        var value by remember { mutableIntStateOf(0) }
         CircularProgressBar(
             backgroundIndicatorStrokeWidth = 50f,
             foregroundIndicatorStrokeWidth = 50f,

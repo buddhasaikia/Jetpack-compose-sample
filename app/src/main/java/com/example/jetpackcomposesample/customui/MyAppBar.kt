@@ -5,7 +5,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import com.example.jetpackcomposesample.home.Screen
@@ -20,7 +20,7 @@ fun MyAppBar(navHostController: NavHostController, title: String) {
                     navHostController.popBackStack()
                 }
             }) {
-                Icon(imageVector = Icons.Outlined.ArrowBack, contentDescription = "Back arrow")
+                Icon(imageVector = Icons.AutoMirrored.Outlined.ArrowBack, contentDescription = "Back arrow")
             }
         }
     )

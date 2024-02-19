@@ -60,6 +60,6 @@ fun LazyListWithStickyHeaderDemoScreen(navHostController: NavHostController) {
 
 @Preview
 @Composable
-fun LazyListWithStickyHeaderDemoScreen() {
+fun LazyListWithStickyHeaderDemoScreenPreview() {
     LazyListWithStickyHeaderDemoScreen(navHostController = rememberNavController())
 }
