@@ -2,7 +2,7 @@ package com.example.jetpackcomposesample.data
 
 class Repository {
     fun getEmployees(): List<Employee> {
-        return listOf(
+        val list = mutableListOf(
             Employee(1, "Manoj Bajpayee", 40),
             Employee(2, "Dev Anand", 23),
             Employee(3, "Nawazuddin Siddiqui", 60),
@@ -16,5 +16,9 @@ class Repository {
             Employee(11, "Salman Khan", 39),
             Employee(12, "Shah Rukh Khan", 50),
         )
+        repeat(500) {
+            list.add(Employee(it + 1, "Employee ${it + 1}", 40 + it))
+        }
+        return list
     }
 }

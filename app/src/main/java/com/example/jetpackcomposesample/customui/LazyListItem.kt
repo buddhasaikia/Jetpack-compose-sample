@@ -28,19 +28,19 @@ fun EmployeeItem(employee: Employee) {
     ) {
         Text(
             modifier = Modifier.padding(horizontal = 20.dp, vertical = 12.dp),
-            text = "${employee.id}",
+            text = "Id: ${employee.id}",
             color = Color.Black,
             fontSize = Typography.h5.fontSize,
             fontWeight = FontWeight.ExtraBold
         )
         Text(
-            text = employee.name,
+            text = "Name: ${employee.name}",
             color = Color.Black,
             fontSize = 16.sp,
             fontWeight = FontWeight.Light
         )
         Text(
-            text = "${employee.age}",
+            text = "Age: ${employee.age}",
             color = Color.Black,
             fontSize = 16.sp,
             fontWeight = FontWeight.Light
